@@ -6,6 +6,7 @@
 
 package mp3uf6practicasakila;
 
+import java.awt.Rectangle;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -40,6 +42,7 @@ public class JFramePelis extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -49,12 +52,14 @@ public class JFramePelis extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -73,6 +78,7 @@ public class JFramePelis extends javax.swing.JFrame {
                 "Id", "Títol", "Descripció", "Any", "Durada"
             }
         ));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -108,13 +114,14 @@ public class JFramePelis extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton5, jButton6, jButton7});
@@ -126,42 +133,21 @@ public class JFramePelis extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(24, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton7)
-                        .addGap(106, 106, 106))))
+                        .addGap(77, 77, 77))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel2.setText("Actors");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(251, 251, 251)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jButton3.setText("Tornar al menú");
-
-        jButton4.setText("Sortir del programa");
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabel2.setText("Actors que intervenen a les pel·lícules");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,40 +169,100 @@ public class JFramePelis extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setText("Actualitzar actors");
+        jButton9.setText("Actualitzar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("Tots");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Només els de la pel·lícula");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton9)
+                            .addComponent(jButton8)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2)))
+        );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton8, jButton9});
+
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jButton8)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton9)
+                        .addGap(38, 38, 38)
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jButton3.setText("Tornar al menú");
+
+        jButton4.setText("Sortir del programa");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(232, 232, 232)
-                .addComponent(jButton3)
-                .addGap(55, 55, 55)
-                .addComponent(jButton4)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton8)
-                            .addComponent(jButton9))
-                        .addGap(31, 31, 31)))
-                .addContainerGap())
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jButton3)
+                        .addGap(55, 55, 55)
+                        .addComponent(jButton4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton3, jButton4});
@@ -228,16 +274,7 @@ public class JFramePelis extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jButton8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton9)))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
@@ -349,33 +386,19 @@ public class JFramePelis extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        try {
             int filasel = jTable1.getSelectedRow();
-            int film_id = (int) jTable1.getValueAt(filasel, 0);
-
-            ResultSet resultSet = null;
-            Statement statement = null;
-        
-            String sql = "Select actor_id from film_actor where film_id="+film_id;
-            //Statement statement = JFramePrincipal.con.createStatement();
-            statement = JFramePrincipal.con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
-                    ResultSet.CONCUR_UPDATABLE);
-            resultSet = statement.executeQuery(sql);
-            ListSelectionModel model = jTable2.getSelectionModel();
-            model.clearSelection();
-            int fila=0;
-            while (fila<jTable2.getRowCount() && resultSet.next()) {
-                while((fila<jTable2.getRowCount()) && ((int)jTable2.getValueAt(fila, 0)<resultSet.getInt("actor_id"))) fila++;
-                if((fila<jTable2.getRowCount()) && ((int)jTable2.getValueAt(fila, 0)==resultSet.getInt("actor_id")))
-                    model.addSelectionInterval(fila, fila);
-                fila++;
+            
+            //Si hi ha alguna fila seleccionada executem el codi que executen el botons de selecció 
+            if(filasel!=-1){
+                if(jRadioButton1.isSelected()) jRadioButton1.doClick();
+                else jRadioButton2.doClick();
+                
+            }  
+            //Si no hi ha cap seleccionada mostrem tots els actors executant l'acció del jRadioButton1
+            else {
+                jRadioButton1.doClick();                   
+                jRadioButton2.setSelected(true);
             }
-            resultSet.close();
-            statement.close();   
-      
-        } catch (SQLException ex) {
-            Logger.getLogger(JFrameActors.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -384,12 +407,12 @@ public class JFramePelis extends javax.swing.JFrame {
        // TODO add your handling code here:
         try {
             int filasel = jTable1.getSelectedRow();
-            int film_id = (int) jTable1.getValueAt(filasel, 0);
 
-            Statement statement = null;
             
             //Si hi ha alguna pel·lícula seleccionada la tractem
             if(filasel!=-1){
+                Statement statement = null;
+                int film_id = (int) jTable1.getValueAt(filasel, 0);
                 String sql = "delete from film_actor where film_id="+film_id;
                 //Statement statement = JFramePrincipal.con.createStatement();
                 statement = JFramePrincipal.con.createStatement();
@@ -405,7 +428,8 @@ public class JFramePelis extends javax.swing.JFrame {
                         }
                 }
                 statement.close();
-          }
+            }
+            else JOptionPane.showMessageDialog(null, "No hi ha cap pel·lícula seleccionada!!", "Error", JOptionPane.ERROR_MESSAGE);
          
         } catch (SQLException ex) {
             Logger.getLogger(JFrameActors.class.getName()).log(Level.SEVERE, null, ex);
@@ -413,6 +437,133 @@ public class JFramePelis extends javax.swing.JFrame {
         
          
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        //Omplim la taula d'actors
+        try {
+            DefaultTableModel model;
+            Vector columnNames = new Vector();
+            Vector data = new Vector();
+            ResultSet resultSet = null;
+            Statement statement = null;
+        
+            String sql = "Select actor_id, first_name, last_name from actor order by 1";
+            //Statement statement = JFramePrincipal.con.createStatement();
+            statement = JFramePrincipal.con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
+            resultSet = statement.executeQuery(sql);
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columns = metaData.getColumnCount();
+            for (int i = 1; i <= columns; i++) {
+                columnNames.addElement(metaData.getColumnName(i));
+            }
+            while (resultSet.next()) {
+                Vector row = new Vector(columns);
+                for (int i = 1; i <= columns; i++) {
+                    row.addElement(resultSet.getObject(i));
+                }
+                data.addElement(row);
+            }
+            
+            model = new DefaultTableModel(data, columnNames);
+            jTable2.setModel(model);
+
+            TableColumn column;        
+            for (int i = 0; i < jTable2.getColumnCount(); i++) {
+                column = jTable2.getColumnModel().getColumn(i);
+                column.setMaxWidth(250);
+            }
+            
+            int filasel = jTable1.getSelectedRow();
+
+            //Si hi ha alguna pel·lícula seleccionem el seus actors
+            if(filasel!=-1){
+                int film_id = (int) jTable1.getValueAt(filasel, 0);
+
+        
+                sql = "Select actor_id from film_actor where film_id="+film_id;
+                statement = JFramePrincipal.con.createStatement();
+                resultSet = statement.executeQuery(sql);
+                ListSelectionModel selmodel = jTable2.getSelectionModel();
+                selmodel.clearSelection();
+                int fila=0;
+                while (fila<jTable2.getRowCount() && resultSet.next()) {
+                    while((fila<jTable2.getRowCount()) && ((int)jTable2.getValueAt(fila, 0)<resultSet.getInt("actor_id"))) fila++;
+                    if((fila<jTable2.getRowCount()) && ((int)jTable2.getValueAt(fila, 0)==resultSet.getInt("actor_id")))
+                        selmodel.addSelectionInterval(fila, fila);
+                    fila++;
+                }
+            }           
+            
+            resultSet.close();
+            statement.close();
+            
+            
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        //Omplim la taula d'actors
+        int filasel = jTable1.getSelectedRow();
+
+        //Si hi ha alguna pel·lícula seleccionada la tractem
+        if(filasel!=-1){
+            try {
+                int film_id = (int) jTable1.getValueAt(filasel, 0);
+                DefaultTableModel model;
+                Vector columnNames = new Vector();
+                Vector data = new Vector();
+                ResultSet resultSet = null;
+                Statement statement = null;
+
+                String sql = "select a.actor_id, first_name, last_name "+
+                             "from actor a join film_actor f on a.actor_id=f.actor_id "+
+                             "where f.film_id="+film_id+" order by 1";
+                //Statement statement = JFramePrincipal.con.createStatement();
+                statement = JFramePrincipal.con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE);
+                resultSet = statement.executeQuery(sql);
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columns = metaData.getColumnCount();
+                for (int i = 1; i <= columns; i++) {
+                    columnNames.addElement(metaData.getColumnName(i));
+                }
+                while (resultSet.next()) {
+                    Vector row = new Vector(columns);
+                    for (int i = 1; i <= columns; i++) {
+                        row.addElement(resultSet.getObject(i));
+                    }
+                    data.addElement(row);
+                }
+
+                model = new DefaultTableModel(data, columnNames);
+                jTable2.setModel(model);
+
+                TableColumn column;        
+                for (int i = 0; i < jTable2.getColumnCount(); i++) {
+                    column = jTable2.getColumnModel().getColumn(i);
+                    column.setMaxWidth(250);
+                }
+                jTable2.selectAll();
+//                ListSelectionModel selmodel = jTable2.getSelectionModel();
+//                resultSet.last();
+//                selmodel.setSelectionInterval(0, resultSet.getRow());                
+//                
+                resultSet.close();
+                statement.close();
+                
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,6 +601,7 @@ public class JFramePelis extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -461,6 +613,8 @@ public class JFramePelis extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
